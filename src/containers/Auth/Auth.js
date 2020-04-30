@@ -35,5 +35,5 @@ export default class Auth extends Component {
 }
 
 {
-  /* Проверка */
+  /* Проверка?? */
 }
