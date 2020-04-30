@@ -33,7 +33,10 @@ export default class Auth extends Component {
     );
   }
 }
+<<<<<<< HEAD
 
 {
   /* Проверка?? */
 }
+=======
+>>>>>>> ed9ddf7790cc49f584bc0e628212583742cf214a

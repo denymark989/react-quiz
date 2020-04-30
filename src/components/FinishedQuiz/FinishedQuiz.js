@@ -49,3 +49,5 @@ const FinishedQuiz = props => {
         </div>
     )
 }
+
+export default FinishedQuiz
