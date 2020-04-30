@@ -33,5 +33,3 @@ export default class Auth extends Component {
     );
   }
 }
-
-<h1>This is empty div</h1>
