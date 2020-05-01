@@ -1,8 +1,39 @@
 import React, { Component } from "react";
 import classes from "./Auth.module.css";
 import Button from "../../components/UI/Button/Button";
+import Input from "../../components/UI/Input/Input";
 
 export default class Auth extends Component {
+  
+  state = {
+    formControls: {
+      email: {
+        value: '',
+        type: 'email',
+        label: 'Email',
+        errorMessage: 'Введите корректный email',
+        valid: false,
+        touched: false,
+        validation: {
+          required: true,
+          email: true
+        },
+      },
+      password: {
+        value: '',
+        type: 'password',
+        label: 'Пароль',
+        errorMessage: 'Введите корректный пароль',
+        valid: false,
+        touched: false,
+        validation: {
+          required: true,
+          minLength: 6
+        }
+      }
+    }
+  }
+    
   loginHandler = () => {};
 
   registerHandler = () => {};
@@ -11,6 +42,29 @@ export default class Auth extends Component {
     event.preventDefault();
   };
 
+  onChangeHandler = (event, controlName) => {
+
+  }
+
+  renderInputs() {
+    return Object.keys(this.state.formControls).map((controlName, index) => {
+      const control = this.state.formControls[controlName]
+      return (
+        <Input 
+          key={controlName + index}
+          type={control.type}
+          value={control.value}
+          valid={control.valid}
+          touched={control.touched}
+          label={control.label}
+          errorMessage={control.errorMessage}
+          shouldValidate={!!control.validation}
+          onChange={event => this.onChangeHandler(event, controlName)}
+        />
+      )
+    })
+  }
+
   render() {
     return (
       <div className={classes.Auth}>
@@ -18,8 +72,8 @@ export default class Auth extends Component {
           <h1>Авторизация</h1>
 
           <form onSubmit={this.submitHandler} className={classes.AuthForm}>
-            <input type="text" />
-            <input type="text" />
+
+            {this.renderInputs()}
 
             <Button type="success" onClick={this.loginHandler}>
               Войти
@@ -33,10 +87,3 @@ export default class Auth extends Component {
     );
   }
 }
-<<<<<<< HEAD
-
-{
-  /* Проверка?? */
-}
-=======
->>>>>>> ed9ddf7790cc49f584bc0e628212583742cf214a
