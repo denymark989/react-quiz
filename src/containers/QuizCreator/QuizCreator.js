@@ -72,6 +72,7 @@ export default class QuizCreator extends Component {
 
                 </Auxiliary>
                 
+                
             )
 
         })
